@@ -1,6 +1,4 @@
- #!/usr/bin/env python
-# -*- coding: utf-8 -*-
-
+# This code is available under the MIT License.
 # (c)2018 Hiroki Iida / Retrieva Inc.
 
 import numpy as np

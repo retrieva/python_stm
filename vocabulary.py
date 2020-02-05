@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 # This code is available under the MIT License.
 # (c)2010-2011 Nakatani Shuyo / Cybozu Labs Inc.
 # (c)2018-2019 Hiroki Iida / Retrieva Inc.
