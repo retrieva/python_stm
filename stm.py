@@ -69,7 +69,6 @@ class STM_base(metaclass=ABCMeta):
                     print("{}: {}".format(voca[w], phi[k, w]))
 
         phi = np.average(self.phi, axis=0)
-
         output(phi, voca)
 
     def perplexity(self, docs=None, Y=None):
@@ -133,15 +132,10 @@ class STM_base(metaclass=ABCMeta):
 
             # prepare update Sigma(calc q_v) and phi(calc phi_tmp)
             E_count[a, :, i] += (c_dv_d * q_z_d).T
-
             hessian = utils.update_Hessian(self.K, q_z_d, c_dv_d, self.wd[m], self.theta[m], inv_Sigma)
-
             q_v += np.linalg.inv(hessian)
-
             diff_var_and_mean = self.calc_diff_var_and_mean(m)
-
             variance_topics += np.outer(diff_var_and_mean, diff_var_and_mean)
-
         return (E_count, q_v, variance_topics)
 
     @abstractmethod
@@ -170,22 +164,17 @@ class STM_jeff_base(STM_base):
     def jeffereysKappa(self, E_count):
         def kappa_obj(kappa_param, kappa_other, c_k, bigC_k, gaussprec):
             p1 = -1 * np.sum(c_k * kappa_param)
-
             demon_kappas = kappa_other * np.exp(kappa_param)
             lseout = np.log(np.sum(demon_kappas, axis=1))
             p2 = np.sum(bigC_k * lseout)
-
             p3 = 0.5 * np.sum(kappa_param**2 * gaussprec)
-
             return p1 + p2 + p3
 
         def kappa_grad(kappa_param, kappa_other, c_k, bigC_k, gaussprec):
-
             denom_kappas = kappa_other * np.exp(kappa_param)
             betaout = denom_kappas / np.sum(denom_kappas, axis=1)[:, np.newaxis]
             p2 = np.sum(bigC_k[:, np.newaxis] * betaout, axis=0)  # sum up the non focus axis
             p3 = kappa_param * gaussprec
-
             return -c_k + p2 + p3
 
         if(not(self.aspectmod)):
@@ -263,8 +252,6 @@ class STM_jeff_base(STM_base):
             self.phi = np.exp(self.kappa_sum - logsumexp(self.kappa_sum, axis=2)[:, :, np.newaxis])
             if sparseagree > tol:
                 break
-
-
 
     def update_phi(self, E_count):
         self.jeffereysKappa(E_count)

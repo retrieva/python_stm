@@ -19,7 +19,6 @@ def eta_optim_obj(ndoc, K, x, phi, Sigma, mu, c_dv, wd):
     x:K numpy array
     phi: KxV numpy array
     """
-
     diff = x[:K-1] - mu[ndoc, :K-1]
     x -= x.max()
     obj_fn = 0.5 * np.dot(diff.T, np.dot(np.linalg.inv(Sigma), diff))
@@ -34,7 +33,6 @@ def eta_optim_grad(ndoc, K, x, phi, Sigma, mu, c_dv, wd):
     x:K numpy array
     phi: KxV numpy arrray
     """
-
     diff = x[:K-1] - mu[ndoc, :K-1]
     x -= x.max()
     q_z = np.exp(x)[:, np.newaxis] * phi

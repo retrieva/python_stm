@@ -2,10 +2,16 @@
 
 # This code is available under the MIT License.
 # (c)2010-2011 Nakatani Shuyo / Cybozu Labs Inc.
+# (c)2018-2019 Hiroki Iida / Retrieva Inc.
 
 import nltk
 import re
 import MeCab
+
+
+stopwords_list = nltk.corpus.stopwords.words('english')
+recover_list = {"wa":"was", "ha":"has"}
+wl = nltk.WordNetLemmatizer()
 
 
 def load_corpus(ranges):
@@ -55,18 +61,12 @@ def load_file(filename):
     return corpus
 
 
-stopwords_list = nltk.corpus.stopwords.words('english')
-recover_list = {"wa":"was", "ha":"has"}
-wl = nltk.WordNetLemmatizer()
-
-
 def is_stopword(w):
     return w in stopwords_list
 
 
 def lemmatize(w0):
     w = wl.lemmatize(w0.lower())
-    # if w=='de': print w0, w
     if w in recover_list: return recover_list[w]
     return w
 
@@ -80,7 +80,6 @@ class Vocabulary:
 
     def term_to_id(self, term0):
         term = lemmatize(term0)
-        # if not re.match(r'[a-z]+$', term): return None
         if self.excluds_stopwords and is_stopword(term):
             return None
         if term not in self.vocas_id:
@@ -93,10 +92,8 @@ class Vocabulary:
         return voca_id
 
     def doc_to_ids(self, doc):
-        # print ' '.join(doc)
         ids_list = []
         words = dict()
-        # print(doc)
         for term in doc:
             id = self.term_to_id(term)
             if id is not None:
