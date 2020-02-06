@@ -1,6 +1,6 @@
 # Structured topic model
 
-論文: A Model of Text for Experimentation in the Social Sciences
+論文: [A Model of Text for Experimentation in the Social Sciences](https://scholar.princeton.edu/sites/default/files/bstewart/files/a_model_of_text_for_experimentation_in_the_social_sciences.pdf)
 
 ```
 python stm_main.py -f <filename> -k <number of topic> -i <iteration count>
