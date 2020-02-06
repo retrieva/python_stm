@@ -11,15 +11,15 @@ def main():
     import argparse
     import vocabulary
     parser = argparse.ArgumentParser()
-    parser.add_argument("-f", dest="filename", help="corpus filename csv")
-    parser.add_argument("-d", dest="document", help="document field name")
+    parser.add_argument("-f", dest="filename", help="set corpus filepath.fileformat is csv")
+    parser.add_argument("-d", dest="document", help="set document field name")
     parser.add_argument("-c", dest="corpus", help="using range of Brown corpus' files(start:end)")
     parser.add_argument("--alpha", dest="alpha", type=float, help="parameter alpha for LDA(default=1.0)", default=1.0)
     parser.add_argument("--beta", dest="beta", type=float, help="parameter beta for LDA(default=0.1)", default=0.1)
     parser.add_argument("-k", dest="topics", type=int, help="number of topics(default=20)", default=20)
     parser.add_argument("-i", dest="iteration", type=int, help="iteration count(default=100)", default=100)
-    parser.add_argument("-x", dest="X", type=str, help="prevalences column", default=None)
-    parser.add_argument("-y", dest="Y", type=str, help="covariates column", default=None)
+    parser.add_argument("-x", dest="X", type=str, help="set prevalences column name", default=None)
+    parser.add_argument("-y", dest="Y", type=str, help="set covariates column name", default=None)
     parser.add_argument("--parser", dest="parser", help="select parser eng_nltk or mecab(default=mecab)", default="mecab")
     parser.add_argument("--sigma", dest="sigma", help="initial value of sigma diagonals(default=0.1)", default=0.1)
     parser.add_argument("--stopwords", dest="stopwords", help="exclude stop words by using corpus from nltk",
