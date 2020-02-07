@@ -1,6 +1,6 @@
 # This code is available under the MIT License.
 # (c)2010-2011 Nakatani Shuyo / Cybozu Labs Inc.
-# (c)2018 Hiroki Iida / Retrieva Inc.
+# (c)2018-2019 Hiroki Iida / Retrieva Inc.
 
 import numpy as np
 import pandas as pd
