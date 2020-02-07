@@ -9,22 +9,22 @@ python stm_main.py -f <filename> -k <number of topic> -i <iteration count>
 ```
 optional arguments:
   -h, --help       show this help message and exit
-  -f FILENAME      set corpus filepath.fileformat is csv
-  -d DOCUMENT      set document field name
-  -c CORPUS        using range of Brown corpus' files(start:end)
-  --alpha ALPHA    parameter alpha for LDA(default=1.0)
-  --beta BETA      parameter beta for LDA(default=0.1)
-  -k TOPICS        number of topics(default=20)
-  -i ITERATION     iteration count(default=100)
-  -x X             set prevalences column name
-  -y Y             set covariates column name
-  --parser PARSER  select parser eng_nltk or mecab(default=mecab)
-  --sigma SIGMA    initial value of sigma diagonals(default=0.1)
-  --stopwords      exclude stop words by using corpus from nltk
-  --seed SEED      random seed
-  --df DF          threshold of document freaquency to cut words
-  --interact       consider interaction between covariates adn topics
-  --sinit          smart initialize of parameters for LDA
+  -f FILENAME      Set corpus filepath. Fileformat is csv
+  -d DOCUMENT      Set document field name
+  -c CORPUS        Using range of Brown corpus' files(start:end)
+  --alpha ALPHA    Parameter alpha for LDA(default=1.0)
+  --beta BETA      Parameter beta for LDA(default=0.1)
+  -k TOPICS        Number of topics(default=20)
+  -i ITERATION     Iteration count(default=100)
+  -x X             Set prevalences column name
+  -y Y             Set covariates column name
+  --parser PARSER  Select parser eng_nltk or mecab(default=mecab)
+  --sigma SIGMA    Initial value of sigma diagonals(default=0.1)
+  --stopwords      Exclude stop words by using corpus from nltk
+  --seed SEED      Random seed
+  --df DF          Threshold of document freaquency to cut words
+  --interact       Consider interaction between covariates adn topics
+  --sinit          Smart initialize of parameters for LDA
  ```
 
 注意
